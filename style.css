@@ -1,46 +1,166 @@
+@font-face {
+    font-family: 'intelone-mono-font-family-regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body{
+    background-size: cover;
+    height: 100vh;
+    display: flex;
     margin: 0;
     background-image: url("img/background.avif");
     background-repeat: no-repeat;
     background-size:cover;
+    font-family: 'SUITE-Regular';
 }
 
 .container{
-    background-color: aquamarine;
+    background-color: #F1E4F3;    
+    border-radius:25px;
+    width: 90vh;
     min-height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+.input-area{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+}
 
 .task-area{
-    border: 1px solid yellow;
+    border: 1px solid #D6D2D2;
+    border-radius: 20px;
 }
 
 .task-tabs{
     display: flex;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #D6D2D2;
+    border-radius: 20px;
     position: relative;
+    justify-content: space-evenly;
+    height: 42px;
 }
 
 .task-tabs div{
-    padding: 1em;
+    padding: 0.5em;
 }
 
 #under-line{
     height: 4px;
-    background-color: white;
+    background-color: #bbd0ff;
     position: absolute;
     width: 60px;
-    left: 0px;
-    top:52px;
+    left: 100px;
+    top:42px;
     padding: 0px;
+    transition: 0.5s;
 }
 
 .task{
     display: flex;
     justify-content: space-between;
-    padding: 1em; ;
+    padding: 1em;
+    border-bottom-style: solid;
+    border-color: #b8b8ff;
+    border-width: 1px;
+}
+.task:last-child{
+    border-bottom-style: none;
 }
 
 .task-done{
     text-decoration: line-through;
+}
+
+.task-tabs div{
+    cursor: pointer;
+}
+
+.title{
+    margin-top: 20px;
+    color:#2d2e2e ;
+    font-weight: 700;
+    font-family: 'intelone-mono-font-family-regular';
+}
+
+.check,.trash{
+    border: none;
+    border-radius: 4px;
+}
+
+#add-button {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 32px;
+    background: white;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    color: #2d2e2e;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;   
+  }
+#all{
+    position: relative;
+}
+  
+#add-button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+
+#add-button::before{
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+#add-button::after {
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#add-button:hover {
+  border-color: #bbd0ff;
+  background-color: #bbd0ff;
+  color: white;
+}
+
+#add-button:hover:after {
+    height: 100%;
+  }
+
+#task-input{
+  width: 50vh;
+  height: 32px;
+  font-size: 12px;
+  font-family: 'SUITE-Regular';
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  background-color: white;
+  margin-bottom: 1px; 
+  margin-right:-7px ;
+  
+  
+
 }

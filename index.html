@@ -9,18 +9,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>To-Do list</h1>
+        <h1 class="title">To-Do list.</h1>
         <section class="input-area">
-            <input type="text" id="task-input"/>
+            <!-- <input type="text" id="task-input"/> -->
+            <form onsubmit="return false">
+                <input type="text" id="task-input" onkeypress="enterKey(e)" placeholder=" 입력하시오 ✏️"/>
+            </form>
             <button id="add-button">+</button>
         </section>
 
         <section class="task-area">
             <div class="task-tabs">
                 <div id="under-line"></div>
-                <div>All</div>
-                <div>ing</div>
-                <div>Done</div>
+                <div id="all">All</div>
+                <div id="ongoing">ing</div>
+                <div id="done">Done</div>
             </div>
 
             <div id="task-board">
