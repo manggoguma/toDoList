@@ -58,8 +58,8 @@ body{
     height: 4px;
     background-color: #bbd0ff;
     position: absolute;
-    width: 60px;
-    left: 100px;
+    width: 10%;
+    left: 18%;
     top:42px;
     padding: 0px;
     transition: 0.5s;

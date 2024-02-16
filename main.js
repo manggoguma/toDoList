@@ -13,8 +13,8 @@
 let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
 let tabs = document.querySelectorAll(".task-tabs div");
-let taskList=[];
 let mode = 'all';
+let taskList=[];
 let filterList=[];
 let underLine = document.getElementById("under-line")
 
@@ -56,7 +56,6 @@ function render() {
     }
     // 2. 리스트를 달리 보여준다
 
-
     let resultHTML=``;
     for(let i = 0;i<list.length;i++){
         if(list[i].isComplete == true){
@@ -77,19 +76,20 @@ function render() {
     </div>`;
         }
     }
-
     document.getElementById("task-board").innerHTML = resultHTML;
 }
 
 function deleteTask(id) {
-    for(let i= 0; i<taskList.length;i++){
-        if(taskList[i].id == id){
+    for(let i = 0; i < taskList.length; i++) {
+        if (taskList[i].id == id) {
             taskList.splice(i,1)
             break;
         }
-    }
-    render();
+      }
+    console.log(taskList);
+    filter();
 }
+
 
 function toggleComplete(id) {
     for(let i = 0; i<taskList.length;i++){
@@ -98,13 +98,17 @@ function toggleComplete(id) {
             break;
         }
     }
-    render();
+    filter();
     console.log(taskList);
 }
 
 function filter(event) {
-    mode = event.target.id;
+    if (event) {
+        mode = event.target.id; // 내가 선택한 정보는 mode가 들고 있다. 모두가 알아야 하므로 지역 변수에서 전역 변수로 변경.
+      }
+
     filterList = [];
+    
     if(mode === "all"){
         render();
     } else if(mode === "ongoing"){
